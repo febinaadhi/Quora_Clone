@@ -1,0 +1,23 @@
+<!-- mysiteapp/templates/view_questions.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>View Questions</h2>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <h3>{{ question.title }}</h3>
+                <p>{{ question.content }}</p>
+                <p>Posted by: {{ question.author }}</p>
+                <p>Created at: {{ question.created_at }}</p>
+                <a href="{% url 'answer_question' question.id %}">Answer this question</a>
+                <p>Total Likes: {{ question.answer_set.count_likes }}</p>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
+

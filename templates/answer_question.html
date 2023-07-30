@@ -1,0 +1,15 @@
+<!-- mysiteapp/templates/answer_question.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Answer Question</h2>
+    <h3>{{ question.title }}</h3>
+    <p>{{ question.content }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="content">Your Answer:</label>
+        <textarea name="content" required></textarea><br>
+        <input type="submit" value="Submit Answer">
+    </form>
+{% endblock %}
